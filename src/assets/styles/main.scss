@@ -2,16 +2,45 @@
 @import "global";
 @import "mixin";
 
+// HEADER STYLE
+
 .header {
   background-color: $dark_bg;
-  padding: 15px 15px;
+  padding: 15px 20px;
   position: relative;
   .flex-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) and (max-width: 991px) {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) and (max-width: 1199px) {
+      width: 85%;
+      margin: 0 auto;
+    }
+
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      width: 90%;
+      margin: 0 auto;
+    }
+    // Extra extra large devices (very large desktops, 1400px and up)
+    @media (min-width: 1400px) {
+      width: 85%;
+      margin: 0 auto;
+    }
     .logo {
       padding-top: 15px;
       cursor: pointer;
+      flex-grow: 0;
+      @media (min-width: 992px) {
+        padding-top: 0;
+      }
     }
     .navbar {
       position: fixed;
@@ -25,21 +54,50 @@
       transition: transform 0.3s ease-in-out;
       display: flex;
       flex-direction: column;
-      //   padding: 20px 0 0;
       z-index: 1000;
-
       &.active {
         transform: translateX(0);
+      }
+      @media (min-width: 768px) {
+        width: 45%;
+      }
+      @media (min-width: 992px) {
+        position: static;
+        background-color: $black_color;
+        color: $white_smoke;
+        transform: translateX(0);
+        transition: none;
+        margin: 0 auto;
+      }
+      // Extra extra large devices (very large desktops, 1400px and up)
+      @media (min-width: 1400px) {
+        margin: 0 auto 0 3em;
       }
       ul {
         list-style-type: none;
         padding: 0;
+        @media (min-width: 992px) {
+          display: flex;
+          justify-content: space-between;
+        }
+        // Extra extra large devices (very large desktops, 1400px and up)
+        @media (min-width: 1400px) {
+          gap: 3em;
+          justify-content: center;
+        }
 
         li {
           padding: 15px 15px;
           border-bottom: 1px solid $light-nav-border;
           &:first-child {
             border-top: 1px solid $light-nav-border;
+            @media (min-width: 992px) {
+              border-top: none;
+            }
+          }
+          @media (min-width: 992px) {
+            padding: 0;
+            border-bottom: none;
           }
 
           a {
@@ -48,6 +106,9 @@
             font-size: 16px;
             font-family: $secondary-font;
             font-weight: 600;
+            @media (min-width: 992px) {
+              color: $white_smoke;
+            }
           }
         }
       }
@@ -60,10 +121,14 @@
         cursor: pointer;
         border-left: 1px solid $light-nav-border;
         padding: 10px 15px;
+        @media (min-width: 992px) {
+          display: none;
+        }
       }
     }
     .contact-btn {
-      margin-left: 7em;
+      margin-left: auto;
+      margin-right: 30px;
       button {
         color: $black_color;
         font-family: $secondary-font;
@@ -83,8 +148,12 @@
       }
     }
     .mobile-menu-trigger {
-      padding-top: 25px;
+      padding-top: 10px;
       cursor: pointer;
+      flex-grow: 0;
+      @media (min-width: 992px) {
+        display: none;
+      }
       span {
         display: block;
         background-color: $white_smoke;
@@ -109,4 +178,10 @@
       }
     }
   }
+}
+
+// FOOTER STYLE
+
+.footer {
+  background-color: $black_color;
 }
