@@ -1,11 +1,18 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
     <section className="footer">
-      <div className="footer-content">
+      <div className="footer-container">
         <div className="grid-container">
-          <div className="content">
+          <div className="footer-content">
             <h2>
               Lets start a
               <span>
@@ -35,8 +42,30 @@ const Footer = () => {
                 </p>
               </div>
             </div>
+            <div className="social-icons">
+              <FontAwesomeIcon icon={faTwitter} className="icon" />
+              <FontAwesomeIcon icon={faFacebook} className="icon" />
+              <FontAwesomeIcon icon={faInstagram} className="icon" />
+              <FontAwesomeIcon icon={faLinkedin} className="icon" />
+            </div>
           </div>
-          <div className="form"></div>
+          <div className="form">
+            <h4>Send us a message</h4>
+            <form action="">
+              <div>
+                <input type="text" />
+              </div>
+              <div>
+                <input type="email" />
+              </div>
+              <div>
+                <input type="tel" />
+              </div>
+              <div>
+                <textarea name="" id=""></textarea>
+              </div>
+            </form>
+          </div>
         </div>
         <div className="copyright-content">
           <div className="logo"></div>
